@@ -11,8 +11,8 @@ services:
       # make sure filegator can read/write to the mounted volume
 
       # mount local folder as a repository
-      - ./wordpress:/var/www/filegator/repository
-    
+      - ./www:/var/www/filegator/repository
+
   frontend:
     build:
       context: .
@@ -34,12 +34,14 @@ services:
 
       #PMA_USER: user
       #PMA_PASSWORD: userpassword
-
+    volumes:
+      - ./www:/bitnami/wordpress
     # networks:
     #   - frontend
     depends_on:
       - mydb
     #    condition: service_healthy
+
   mydb:
     build:
       context: .
@@ -66,5 +68,5 @@ services:
 #     name: dockercompose-frontend
 #     labels:
 #       - "network=Custom"
-volumes:
-  db-data:
+# volumes:
+#   db-data:
