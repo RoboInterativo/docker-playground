@@ -8,5 +8,6 @@ if [  -d $TARGET ]; then
 fi
 docker run --network  wordpress_default  \
 --volume $TARGET:/opt \
-mariadb:lts mariadb-dump wordpress --user root --host=mydb --password=rootpassword \
+mariadb:lts mariadb-dump --database=wordpress --user root\
+--host=mydb --password=rootpassword \
 --result-file=/opt/mydb.sql
