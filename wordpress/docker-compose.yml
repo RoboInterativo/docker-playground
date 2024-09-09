@@ -7,9 +7,16 @@ services:
     hostname: dockercompose-frontend
     #container_name: phpmyadmin
     ports:
+
       - "8080:80"
     environment:
-      PMA_HOST: mydb
+      WORDPRESS_USERNAME: admin
+      WORDPRESS_PASSWORD: admin
+      WORDPRESS_DATABASE_USER: wordpress
+      WORDPRESS_DATABASE_PASSWORD:
+      WORDPRESS_DATABASE_NAME: wordpress
+      WORDPRESS_DATABASE_HOST: mydb
+
       #PMA_USER: user
       #PMA_PASSWORD: userpassword
 
@@ -24,12 +31,12 @@ services:
       dockerfile: Dockerfiledb
     environment:
       MYSQL_ROOT_PASSWORD: rootpassword
-      MYSQL_DATABASE: mydatabase
-      MYSQL_USER: user
-      MYSQL_PASSWORD: userpassword
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: wordpress
     hostname: mydb
     volumes:
-      - ./www:/var/lib/mysql
+      - ./data:/var/lib/mysql
     healthcheck:
       test: ["CMD", "mariadb-admin" ,"ping", "-h", "localhost", "-uroot", "-prootpass"]
       interval: 10s
