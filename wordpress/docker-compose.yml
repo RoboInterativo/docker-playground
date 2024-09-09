@@ -27,20 +27,9 @@ services:
       #PMA_USER: user
       #PMA_PASSWORD: userpassword
 
-    # networks:
-    #   - frontend
+
     depends_on:
       - mydb
-
-      #PMA_USER: user
-      #PMA_PASSWORD: userpassword
-    # volumes:
-    #   - ./www:/bitnami/wordpress
-    # networks:
-    #   - frontend
-    depends_on:
-      - mydb
-
 
 
   frontend:
@@ -66,8 +55,7 @@ services:
       #PMA_PASSWORD: userpassword
     volumes:
       - ./www:/bitnami/wordpress
-    # networks:
-    #   - frontend
+
     depends_on:
       - mydb
     #    condition: service_healthy
@@ -89,14 +77,3 @@ services:
       interval: 10s
       timeout: 15s
       retries: 5
-    # networks:
-    #   - frontend
-
-
-# networks:
-#   frontend:
-#     name: dockercompose-frontend
-#     labels:
-#       - "network=Custom"
-# volumes:
-#   db-data:
