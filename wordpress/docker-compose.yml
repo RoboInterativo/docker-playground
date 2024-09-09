@@ -20,8 +20,8 @@ services:
       #PMA_USER: user
       #PMA_PASSWORD: userpassword
 
-    networks:
-      - frontend
+    # networks:
+    #   - frontend
     depends_on:
       - mydb
     #    condition: service_healthy
@@ -42,8 +42,8 @@ services:
       interval: 10s
       timeout: 15s
       retries: 5
-    networks:
-      - frontend
+    # networks:
+    #   - frontend
 
 
 # networks:
