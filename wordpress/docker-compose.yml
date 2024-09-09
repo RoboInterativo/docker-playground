@@ -13,6 +13,36 @@ services:
       # mount local folder as a repository
       - ./www:/var/www/filegator/repository
 
+  phpmyadm:
+    build:
+      context: .
+      dockerfile: Dockerfilepm
+    #image: phpmyadmin:5.2.0-apache
+    hostname: dockercompose-frontend
+    #container_name: phpmyadmin
+    ports:
+      - "8088:80"
+    environment:
+      PMA_HOST: mydb
+      #PMA_USER: user
+      #PMA_PASSWORD: userpassword
+
+    # networks:
+    #   - frontend
+    depends_on:
+      - mydb
+
+      #PMA_USER: user
+      #PMA_PASSWORD: userpassword
+    # volumes:
+    #   - ./www:/bitnami/wordpress
+    # networks:
+    #   - frontend
+    depends_on:
+      - mydb
+
+
+
   frontend:
     build:
       context: .
