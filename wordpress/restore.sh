@@ -8,6 +8,6 @@ if [  -d $TARGET ]; then
 fi
 docker run --network  wordpress_default  \
 --volume $TARGET:/opt \
- mariadb:lts ls /opt  bash
+ mariadb:lts  bash
  #&&  mariadb  --user root --host=mydb \
 # --database=wordpress --password=rootpassword \< /opt/mydb.sql
