@@ -50,6 +50,7 @@ services:
       WORDPRESS_DATABASE_PASSWORD: wordpress
       WORDPRESS_DATABASE_NAME: wordpress
       WORDPRESS_DATABASE_HOST: mydb
+      WORDPRESS_MULTISITE_FILEUPLOAD_MAXK:  281920
 
       #PMA_USER: user
       #PMA_PASSWORD: userpassword
