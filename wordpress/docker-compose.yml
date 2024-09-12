@@ -27,10 +27,10 @@ services:
       #PMA_USER: user
       #PMA_PASSWORD: userpassword
 
-
     depends_on:
-      - init-wp:
-        condition: service_started
+      init-wp::
+          condition: service_started
+
 
 
   init-wp:
