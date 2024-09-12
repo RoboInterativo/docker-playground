@@ -84,7 +84,7 @@ services:
       - ./www:/bitnami/wordpress
 
     depends_on:
-      - mydb
+
       - init-wp:
           condition: service_started    #    condition: service_healthy
 
