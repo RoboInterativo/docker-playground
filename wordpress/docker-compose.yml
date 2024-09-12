@@ -32,27 +32,27 @@ services:
 
 
 
-  init-wp:
-      image: wordpress-frontend:latest
-      command: |
-        wp config create \
-        --dbname=wordpress \
-        --dbuser=wordpress \
-        --dbpass=wordpress \
-        --dbhost=mydb\
-        --user=admin
-      environment:
-        WORDPRESS_USERNAME: admin
-        WORDPRESS_PASSWORD: admin
-        WORDPRESS_DATABASE_USER: wordpress
-        WORDPRESS_DATABASE_PASSWORD: wordpress
-        WORDPRESS_DATABASE_NAME: wordpress
-        WORDPRESS_DATABASE_HOST: mydb
-      volumes:
-        - ./www:/bitnami/wordpress
-
-      depends_on:
-        - mydb
+  # init-wp:
+  #     image: wordpress-frontend:latest
+  #     command: |
+  #       wp config create \
+  #       --dbname=wordpress \
+  #       --dbuser=wordpress \
+  #       --dbpass=wordpress \
+  #       --dbhost=mydb\
+  #       --user=admin
+  #     environment:
+  #       WORDPRESS_USERNAME: admin
+  #       WORDPRESS_PASSWORD: admin
+  #       WORDPRESS_DATABASE_USER: wordpress
+  #       WORDPRESS_DATABASE_PASSWORD: wordpress
+  #       WORDPRESS_DATABASE_NAME: wordpress
+  #       WORDPRESS_DATABASE_HOST: mydb
+  #     volumes:
+  #       - ./www:/bitnami/wordpress
+  #
+  #     depends_on:
+  #       - mydb
 
 
                 # condition: service_started
