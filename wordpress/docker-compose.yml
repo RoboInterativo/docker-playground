@@ -28,8 +28,7 @@ services:
       #PMA_PASSWORD: userpassword
 
     depends_on:
-      init-wp:
-          condition: service_started
+        - mydb
 
 
 
@@ -80,7 +79,8 @@ services:
 
     depends_on:
       - mydb
-    #    condition: service_healthy
+      - init-wp:
+          condition: service_started    #    condition: service_healthy
 
   mydb:
     build:
