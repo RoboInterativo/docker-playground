@@ -32,6 +32,26 @@ services:
       - mydb
 
 
+  init-wp:
+      image: wordpress-frontend:latest
+      command: wp config create
+      environment:
+        WORDPRESS_USERNAME: admin
+        WORDPRESS_PASSWORD: admin
+        WORDPRESS_DATABASE_USER: wordpress
+        WORDPRESS_DATABASE_PASSWORD: wordpress
+        WORDPRESS_DATABASE_NAME: wordpress
+        WORDPRESS_DATABASE_HOST: mydb
+      volumes:
+        - ./www:/bitnami/wordpress
+
+          depends_on:
+            - mydb
+
+
+                # condition: service_started
+
+
   frontend:
     build:
       context: .
@@ -50,7 +70,7 @@ services:
       WORDPRESS_DATABASE_PASSWORD: wordpress
       WORDPRESS_DATABASE_NAME: wordpress
       WORDPRESS_DATABASE_HOST: mydb
-      WORDPRESS_MULTISITE_FILEUPLOAD_MAXK:  281920
+    #  WORDPRESS_MULTISITE_FILEUPLOAD_MAXK:  281920
 
       #PMA_USER: user
       #PMA_PASSWORD: userpassword
