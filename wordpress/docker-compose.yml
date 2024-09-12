@@ -38,7 +38,7 @@ services:
         wp config create \
         --dbname=wordpress \
         --dbuser=wordpress \
-        --dbpass=wordpress] \
+        --dbpass=wordpress \
         --dbhost=mydb\
         --user=admin
       environment:
