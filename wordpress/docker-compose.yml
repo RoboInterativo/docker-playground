@@ -45,7 +45,7 @@ services:
       volumes:
         - ./www:/bitnami/wordpress
 
-          depends_on:
+      depends_on:
             - mydb
 
 
