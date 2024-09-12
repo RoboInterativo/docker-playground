@@ -34,7 +34,13 @@ services:
 
   init-wp:
       image: wordpress-frontend:latest
-      command: wp config create
+      command: |
+        wp config create \
+        --dbname=wordpress \
+        --dbuser=wordpress \
+        --dbpass=wordpress] \
+        --dbhost=mydb\
+        --user=admin
       environment:
         WORDPRESS_USERNAME: admin
         WORDPRESS_PASSWORD: admin
