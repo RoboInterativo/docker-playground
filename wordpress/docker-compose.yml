@@ -1,17 +1,17 @@
 services:
 
-  filegator:
-    container_name: filegator
-    image: filegator/filegator
-    restart: always
-    ports:
-      - "8080:8080"
-    volumes:
-      # common mount points are listed here
-      # make sure filegator can read/write to the mounted volume
-
-      # mount local folder as a repository
-      - ./www/wp-content:/var/www/filegator/repository
+  # filegator:
+  #   container_name: filegator
+  #   image: filegator/filegator
+  #   restart: always
+  #   ports:
+  #     - "8080:8080"
+  #   volumes:
+  #     # common mount points are listed here
+  #     # make sure filegator can read/write to the mounted volume
+  #
+  #     # mount local folder as a repository
+  #     - ./www/wp-content:/var/www/filegator/repository
 
   phpmyadm:
     build:
